@@ -40,9 +40,9 @@ export class DataService implements OnDestroy {
                 }
             );
     }
-    newMessage (session:Session) {
+    newMessage (message: string) {
         this.http.get(environment.apiUrl + '/new_message', {
-            params: { session_id: `${session.session_id}` }
+            params: { session_id: `${this._session.session_id}`,message: message }
     })
     .subscribe(
         (response) => {
